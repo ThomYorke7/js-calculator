@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Chettan+2&display=swap');
+
+:root {
+    font-size: 50px;
+    font-family: 'Baloo Chettan 2', cursive;
+}
+
+html, body {
+    height: 100vh;
+    width: 100vw;
+}
+
+#container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+
+#calculator {
+    display: grid;
+    grid-template-columns: repeat(4, 2rem);
+    grid-template-rows: 0.5rem 1.5rem 1.5rem 1.5rem 1.5rem 1.5rem 1.5rem;
+    grid-template-areas: 
+        "operation operation operation operation"
+        "display display display display"
+        "first first first first"
+        "second second second second"
+        "third third third third"
+        "fourth fourth fourth fourth"
+        "last last last last";
+    column-gap: 0.2rem;
+    row-gap: 0.2rem;
+}
+
+#display {
+    grid-area: display;
+    text-align: right;
+    border-bottom: 2px solid #ebebeb;
+    align-self: flex-end;
+}
+
+#operation {
+    grid-area: operation;
+    font-size: 30px;
+    color: gray;
+}
+
+.first-row >*{
+    grid-area: first;
+}
+
+.second-row >*{
+    grid-area: second;
+}
+
+.third-row >*{
+    grid-area: third;
+}
+
+.fourth-row >*{
+    grid-area: fourth;
+}
+
+.last-row >*{
+    grid-area: last;
+}
+
+
+.operator {
+    color: orangered;
+    border: none;
+    background-color: white;
+}
+
+
+
+.digit {
+    background-color: white;
+    border: none;
+}
+
+#equal {
+    background-color: orangered;
+    color: white;
+    border-radius: 50%;
+    margin: 0 0.25rem 0 0.25rem;
+}
