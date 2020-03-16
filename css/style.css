@@ -1,3 +1,4 @@
+/* Global Setting */
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Chettan+2&display=swap');
 
 :root {
@@ -10,6 +11,8 @@ html, body {
     width: 100vw;
 }
 
+
+/* Setting the main container for the calculator */
 #container {
     display: flex;
     flex-direction: row;
@@ -20,6 +23,7 @@ html, body {
 }
 
 
+/* Setting the calculator in a CSS Grid */
 #calculator {
     display: grid;
     grid-template-columns: repeat(4, 2rem);
@@ -70,13 +74,12 @@ html, body {
 }
 
 
+/* Editing the buttons */
 .operator {
     color: orangered;
     border: none;
     background-color: white;
 }
-
-
 
 .digit {
     background-color: white;
