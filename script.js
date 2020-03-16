@@ -54,9 +54,63 @@ function populateDisplay() {
 }
 
 
+/* Adds keyboard support */
+window.addEventListener("keydown", (e) => {
+    switch (e.key) {
+        case "Delete":
+            overallOperation.textContent = "";
+            currentOperation.textContent = "";
+            operation.length = 0;
+            break;
+        case "Backspace":
+            overallOperation.textContent = overallOperation.textContent.slice(0, -1);
+            currentOperation.textContent = "";
+            operation.pop();
+            break;
+        case ".":
+            if (!currentOperation.textContent.includes(".") && overallOperation.textContent != "") {
+                overallOperation.textContent += e.key;
+                currentOperation.textContent += e.key;
+            };
+            break;
+        case "+":
+        case "-":
+        case "*":
+        case "/":
+        case "^":
+            if (typeof (currentOperation.textContent == "number") && currentOperation.textContent != "") {
+                extractOperation(overallOperation.textContent);
+                overallOperation.textContent += e.key;
+                currentOperation.textContent = "";
+            };
+            break;
+        case "Enter":
+            if (typeof (currentOperation.textContent == "number") && overallOperation.textContent != "") {
+                extractOperation(overallOperation.textContent);
+                overallOperation.textContent = "";
+                currentOperation.textContent = operation[0];
+            };
+            break;
+        case "1":
+        case "2":
+        case "3":
+        case "4":
+        case "5":
+        case "6":
+        case "7":
+        case "8":
+        case "9":
+        case "0":
+            overallOperation.textContent += e.key;
+            currentOperation.textContent += e.key;
+            break;
+    }
+})
+
+
 /* Parses the user input and passes the elements in two different arrays */
 function extractOperation(string) {
-    accumulator = string.split(/([+x/^=-])/g);
+    accumulator = string.split(/([+x*^=-])/g);
     if (operation.length == 0) {
         operation.push(...accumulator)
     }
@@ -93,6 +147,7 @@ function recognizeOperator(operator, a, b) {
             operation.push(subtract(a, b));
             break;
         case "x":
+        case "*":
             operation.length = 0;
             operation.push(multiply(a, b));
             break;
