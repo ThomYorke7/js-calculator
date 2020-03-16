@@ -105,28 +105,10 @@ function populateDisplay() {
                     };
                     break;
                 case "+":
-                    if (!currentOperation.textContent.includes("+")) {
-                        extractOperation(overallOperation.textContent);
-                        overallOperation.textContent += e.target.textContent;
-                        currentOperation.textContent = e.target.textContent;
-                    };
-                    break;
                 case "-":
-                    if (!currentOperation.textContent.includes("-")) {
-                        extractOperation(overallOperation.textContent);
-                        overallOperation.textContent += e.target.textContent;
-                        currentOperation.textContent = e.target.textContent;
-                    };
-                    break;
                 case "x":
-                    if (!currentOperation.textContent.includes("x")) {
-                        extractOperation(overallOperation.textContent);
-                        overallOperation.textContent += e.target.textContent;
-                        currentOperation.textContent = e.target.textContent;
-                    };
-                    break;
                 case "/":
-                    if (!currentOperation.textContent.includes("/")) {
+                    if (currentOperation.textContent >= 0 && currentOperation.textContent <= 9) {
                         extractOperation(overallOperation.textContent);
                         overallOperation.textContent += e.target.textContent;
                         currentOperation.textContent = e.target.textContent;
