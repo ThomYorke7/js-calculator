@@ -110,7 +110,7 @@ window.addEventListener("keydown", (e) => {
 
 /* Parses the user input and passes the elements in two different arrays */
 function extractOperation(string) {
-    accumulator = string.split(/([+x*^=-])/g);
+    accumulator = string.split(/([+x\/*^=-])/g);
     if (operation.length == 0) {
         operation.push(...accumulator)
     }
